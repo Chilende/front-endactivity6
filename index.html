@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Campus Maintenance Requests</title>
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <h1>Campus Maintenance Requests</h1>
+      <p class="intro">Report broken lights, taps or furniture around campus, then track each request until it is fixed.</p>
+    </div>
+    <nav aria-label="Main navigation">
+      <ul class="wrap nav-list">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#manage">Manage Records</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content" class="wrap">
+
+    <section id="home" class="panel">
+      <h2>Home</h2>
+      <p>This system lets students and staff log maintenance problems in one place. Each request has a title, a category such as Electrical, Plumbing or Furniture, a description of the problem and a status that shows its progress.</p>
+      <p>Go to <a href="#manage">Manage Records</a> to add a new request or work with existing ones.</p>
+    </section>
+
+    <section id="manage" class="panel">
+      <h2>Manage Records</h2>
+
+      <div id="message" class="message" role="status" aria-live="polite" hidden></div>
+
+      <div class="record-grid">
+
+        <section class="card" aria-labelledby="form-heading">
+          <h3 id="form-heading">Add a request</h3>
+          <form id="record-form" novalidate>
+            <div class="field">
+              <label for="title">Title</label>
+              <input id="title" name="title" type="text" maxlength="200" placeholder="For example, Broken light in Room B12" required>
+              <small>3 to 80 characters.</small>
+            </div>
+
+            <div class="field">
+              <label for="category">Category</label>
+              <input id="category" name="category" type="text" maxlength="60" placeholder="For example, Electrical" required>
+              <small>2 to 40 characters.</small>
+            </div>
+
+            <div class="field">
+              <label for="description">Description</label>
+              <textarea id="description" name="description" rows="4" maxlength="400" placeholder="Describe the problem and where it is." required></textarea>
+              <small>5 to 300 characters.</small>
+            </div>
+
+            <div class="field">
+              <label for="status">Status</label>
+              <select id="status" name="status">
+                <option value="Pending">Pending</option>
+                <option value="In progress">In progress</option>
+                <option value="Completed">Completed</option>
+              </select>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" id="submit-btn" class="btn btn-primary">Add record</button>
+              <button type="button" id="cancel-btn" class="btn btn-quiet" hidden>Cancel Edit</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="card" aria-labelledby="list-heading">
+          <h3 id="list-heading">Request list</h3>
+
+          <div class="toolbar">
+            <div class="field">
+              <label for="search">Search by title</label>
+              <input id="search" type="search" placeholder="Type part of a title">
+            </div>
+            <div class="field">
+              <label for="filter">Filter by status</label>
+              <select id="filter">
+                <option value="">All statuses</option>
+                <option value="Pending">Pending</option>
+                <option value="In progress">In progress</option>
+                <option value="Completed">Completed</option>
+              </select>
+            </div>
+          </div>
+
+          <p id="result-count" class="count" aria-live="polite"></p>
+          <ul id="record-list" class="record-list"></ul>
+        </section>
+      </div>
+
+      <section id="details" class="card details" aria-labelledby="details-heading" hidden>
+        <div class="details-head">
+          <h3 id="details-heading">Request details</h3>
+          <button type="button" id="close-details" class="btn btn-quiet">Close details</button>
+        </div>
+        <dl id="details-body"></dl>
+      </section>
+    </section>
+
+    <section id="about" class="panel">
+      <h2>About</h2>
+      <dl class="about-list">
+        <dt>Project name</dt>
+        <dd>Campus Maintenance Requests</dd>
+        <dt>Student number</dt>
+        <dd>202513351</dd>
+        <dt>Course</dt>
+        <dd>ICT251 Introduction to Web Technologies, Activity 6 (Frontend Development)</dd>
+      </dl>
+      <p>This version uses browser demonstration data. Records are saved in this browser's localStorage, so they will not appear on other devices or browsers. Shared records will be added through a backend in Activity 8.</p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Campus Maintenance Requests · Student number 202513351 · Demonstration data only</p>
+    </div>
+  </footer>
+
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>
